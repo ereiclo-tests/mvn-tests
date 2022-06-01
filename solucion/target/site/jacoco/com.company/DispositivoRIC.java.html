@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DispositivoRIC.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">solucion</a> &gt; <a href="index.source.html" class="el_package">com.company</a> &gt; <span class="el_source">DispositivoRIC.java</span></div><h1>DispositivoRIC.java</h1><pre class="source lang-java linenums">package com.company;
+
+import java.text.ParseException;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
+
+<span class="nc" id="L8">public class DispositivoRIC{</span>
+    // Constantes de Clase
+    private static final String DATE_EXCEPTION = &quot;DATE_EXCEPTION&quot;;
+    private static final String DATE_FORMAT_EXCEPTION = &quot;DATE_FORMAT_EXCEPTION&quot;;
+<span class="fc" id="L12">    private static final SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</span>
+    // Funcion Principal
+    public static boolean ValidarMayoriaDeEdad(String nacimiento, String consulta) throws DateException, DateFormatException {
+        Date FechaNacimiento;
+        Date FechaConsulta;
+
+        try {
+<span class="fc" id="L19">            FechaNacimiento = sdf.parse(nacimiento);</span>
+        }
+<span class="nc" id="L21">        catch (ParseException e){</span>
+<span class="nc" id="L22">            throw new DateFormatException(DATE_FORMAT_EXCEPTION, &quot;Fecha Nacimiento con formato incorrecto&quot;);</span>
+<span class="fc" id="L23">        }</span>
+
+        try {
+<span class="fc" id="L26">            FechaConsulta = sdf.parse(consulta);</span>
+        }
+<span class="nc" id="L28">        catch (ParseException e){</span>
+<span class="nc" id="L29">            throw new DateFormatException(DATE_FORMAT_EXCEPTION, &quot;Fecha Consulta con formato incorrecto&quot;);</span>
+<span class="fc" id="L30">        }</span>
+
+<span class="pc bpc" id="L32" title="1 of 2 branches missed.">        if (FechaNacimiento.after(FechaConsulta)) {</span>
+<span class="nc" id="L33">            throw new DateException(DATE_EXCEPTION, &quot;Fecha de consulta es mayor a fecha de nacimiento&quot;);</span>
+        }
+<span class="pc bpc" id="L35" title="1 of 2 branches missed.">        if (FechaConsulta.getYear() - FechaNacimiento.getYear() &gt; 18){</span>
+<span class="fc" id="L36">            return true;</span>
+        }
+<span class="nc bnc" id="L38" title="All 2 branches missed.">        else if (FechaConsulta.getYear() - FechaNacimiento.getYear() == 18){</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">            if (FechaConsulta.getMonth() - FechaNacimiento.getMonth() &gt; 0) {</span>
+<span class="nc" id="L40">                return true;</span>
+            }
+<span class="nc bnc" id="L42" title="All 2 branches missed.">            else if (FechaConsulta.getMonth() - FechaNacimiento.getMonth() == 0) {</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">                return FechaConsulta.getDay() - FechaNacimiento.getDay() &gt;= 0;</span>
+            }
+        }
+<span class="nc" id="L46">        return false;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-06-01T12:57:32 PET" name="Surefire suite" finished-at="2022-06-01T12:57:33 PET" duration-ms="80">
+    <groups>
+    </groups>
+    <test started-at="2022-06-01T12:57:32 PET" name="Surefire test" finished-at="2022-06-01T12:57:33 PET" duration-ms="80">
+      <class name="com.company.DispositivoRICTest">
+        <test-method signature="setUp()[pri:0, instance:com.company.DispositivoRICTest@319c3a25]" started-at="2022-06-01T12:57:33 PET" name="setUp" finished-at="2022-06-01T12:57:33 PET" duration-ms="7" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testMayorDeEdad()[pri:0, instance:com.company.DispositivoRICTest@319c3a25]" started-at="2022-06-01T12:57:33 PET" name="testMayorDeEdad" finished-at="2022-06-01T12:57:33 PET" duration-ms="26" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMayorDeEdad -->
+      </class> <!-- com.company.DispositivoRICTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
